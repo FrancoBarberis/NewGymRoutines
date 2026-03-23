@@ -1,0 +1,103 @@
+gym-app/
+├─ src/
+│  ├─ domain/                         
+│  │  ├─ users/
+│  │  │  ├─ User.ts
+│  │  │  ├─ UserId.ts
+│  │  │  └─ UserRole.ts
+│  │  ├─ exercises/
+│  │  │  ├─ Exercise.ts
+│  │  │  └─ MuscleGroup.ts
+│  │  ├─ workouts/
+│  │  │  ├─ Workout.ts
+│  │  │  └─ WorkoutExercise.ts
+│  │  └─ plans/
+│  │     ├─ Plan.ts
+│  │     └─ PlanWeek.ts
+│  │
+│  ├─ application/                    
+│  │  ├─ users/
+│  │  │  ├─ ports/
+│  │  │  │  ├─ UserRepository.ts
+│  │  │  │  └─ PasswordHasherPort.ts
+│  │  │  └─ usecases/
+│  │  │     ├─ RegisterUser.ts
+│  │  │     ├─ LoginUser.ts
+│  │  │     └─ GetProfile.ts
+│  │  ├─ exercises/
+│  │  │  ├─ ports/
+│  │  │  │  └─ ExerciseRepository.ts
+│  │  │  └─ usecases/
+│  │  │     ├─ CreateExercise.ts
+│  │  │     └─ ListExercises.ts
+│  │  ├─ workouts/
+│  │  │  ├─ ports/
+│  │  │  │  └─ WorkoutRepository.ts
+│  │  │  └─ usecases/
+│  │  │     ├─ CreateWorkout.ts
+│  │  │     ├─ AddExerciseToWorkout.ts
+│  │  │     └─ GetWorkout.ts
+│  │  └─ plans/
+│  │     ├─ ports/
+│  │     │  └─ PlanRepository.ts
+│  │     └─ usecases/
+│  │        ├─ CreatePlan.ts
+│  │        ├─ AssignPlanToUser.ts
+│  │        └─ GetPlan.ts
+│  │
+│  ├─ infrastructure/                 
+│  │  ├─ http/                        
+│  │  │  ├─ server.ts
+│  │  │  ├─ routes/
+│  │  │  │  ├─ auth.routes.ts
+│  │  │  │  ├─ users.routes.ts
+│  │  │  │  ├─ exercises.routes.ts
+│  │  │  │  └─ workouts.routes.ts
+│  │  │  ├─ controllers/
+│  │  │  │  ├─ AuthController.ts
+│  │  │  │  ├─ UsersController.ts
+│  │  │  │  ├─ ExercisesController.ts
+│  │  │  │  └─ WorkoutsController.ts
+│  │  │  └─ middleware/
+│  │  │     ├─ auth.ts
+│  │  │     └─ errorHandler.ts
+│  │  ├─ persistence/                 
+│  │  │  ├─ prisma/
+│  │  │  │  ├─ schema.prisma
+│  │  │  │  └─ PrismaClientFactory.ts
+│  │  │  └─ repositories/
+│  │  │     ├─ PrismaUserRepository.ts
+│  │  │     ├─ PrismaExerciseRepository.ts
+│  │  │     └─ PrismaWorkoutRepository.ts
+│  │  ├─ security/
+│  │  │  ├─ JwtService.ts
+│  │  │  └─ BcryptHasher.ts
+│  │  └─ mappers/
+│  │     ├─ user.mapper.ts
+│  │     └─ workout.mapper.ts
+│  │
+│  ├─ config/                         
+│  │  ├─ env.ts
+│  │  └─ container.ts
+│  │
+│  ├─ shared/                         
+│  │  ├─ Result.ts
+│  │  └─ errors.ts
+│  │
+│  ├─ types/                          
+│  │  └─ express/
+│  │     └─ index.d.ts
+│  │
+│  └─ main.ts                         
+│
+├─ test/
+│  ├─ unit/                           
+│  └─ integration/                    
+│
+├─ prisma/                            
+│  └─ schema.prisma
+├─ .env
+├─ .gitignore
+├─ package.json
+├─ tsconfig.json
+└─ README.md

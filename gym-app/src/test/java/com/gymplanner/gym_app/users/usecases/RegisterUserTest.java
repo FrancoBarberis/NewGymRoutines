@@ -36,7 +36,7 @@ public class RegisterUserTest {
 
         // Assert
         assertNotNull(result);
-        assertEquals("Franco", result.getNombre());
+        assertEquals("Franco", result.getName());
         assertEquals("franco@mail.com", result.getEmail());
         assertEquals("hashed1234", result.getPassword());
 

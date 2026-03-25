@@ -3,8 +3,6 @@ package com.gymplanner.gym_app.users.infrastructure.jpa;
 import com.gymplanner.gym_app.users.ports.UserRepository;
 import org.springframework.stereotype.Repository;
 import com.gymplanner.gym_app.users.domain.User;
-import com.gymplanner.gym_app.users.ports.UserRepository;
-import com.gymplanner.gym_app.users.infrastructure.jpa.UserMapper;
 import com.gymplanner.gym_app.users.infrastructure.jpa.entities.UserEntity;
 
 @Repository

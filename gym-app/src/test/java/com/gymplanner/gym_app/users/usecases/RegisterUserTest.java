@@ -30,6 +30,7 @@ public class RegisterUserTest {
         // mock behavior
         when(repo.findByEmail("franco@mail.com")).thenReturn(null);
         when(encoder.encode("1234")).thenReturn("hashed1234");
+        when(repo.save(any(User.class))).thenAnswer(invocation -> invocation.getArgument(0));
 
         // Act
         User result = useCase.execute(cmd);

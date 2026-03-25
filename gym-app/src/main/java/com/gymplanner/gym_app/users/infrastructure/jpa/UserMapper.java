@@ -8,7 +8,7 @@ public class UserMapper {
 
     public UserEntity toEntity(User user) {
         return new UserEntity(
-                user.getId().toString(),
+                user.getId(),
                 user.getEmail(),
                 user.getName(),
                 user.getPassword());
@@ -16,7 +16,7 @@ public class UserMapper {
 
     public User toDomain(UserEntity userEntity) {
         return new User(
-                UUID.fromString(userEntity.getId()),
+                userEntity.getId(),
                 userEntity.getNombre(),
                 userEntity.getEmail(),
                 userEntity.getHashedPassword());

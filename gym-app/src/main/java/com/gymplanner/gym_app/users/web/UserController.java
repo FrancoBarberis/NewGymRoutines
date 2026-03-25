@@ -5,6 +5,8 @@ import com.gymplanner.gym_app.users.usecases.RegisterUser;
 import com.gymplanner.gym_app.users.usecases.RegisterUserCommand;
 import com.gymplanner.gym_app.users.domain.User;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -16,7 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public RegisterUserResponse register(@RequestBody RegisterUserRequest request) {
+    public RegisterUserResponse register(@Valid @RequestBody RegisterUserRequest request) {
 
         // Convertimos el DTO del controller en el command del caso de uso:
         RegisterUserCommand cmd = new RegisterUserCommand(

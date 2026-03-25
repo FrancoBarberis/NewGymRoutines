@@ -2,8 +2,8 @@
 create table users (
   id uuid primary key,
   email varchar(255) not null unique,
-  password_hash varchar(255) not null,
-  role varchar(30) not null
+  hashed_password varchar(255) not null,
+  nombre varchar(100) not null
 );
 
 create table exercises (

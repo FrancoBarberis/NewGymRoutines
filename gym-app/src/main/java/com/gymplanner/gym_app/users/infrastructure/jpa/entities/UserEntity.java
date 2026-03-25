@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -17,7 +19,7 @@ import lombok.Setter;
 public class UserEntity {
 
     @Id
-    String id; //es UUID en dominio
+    UUID id; // cambiado a UUID
     String email;
     String nombre;
     String hashedPassword;

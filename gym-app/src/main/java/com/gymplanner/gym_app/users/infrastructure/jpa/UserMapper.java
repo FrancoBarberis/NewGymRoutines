@@ -1,0 +1,24 @@
+package com.gymplanner.gym_app.users.infrastructure.jpa;
+
+import com.gymplanner.gym_app.users.domain.User;
+import com.gymplanner.gym_app.users.infrastructure.jpa.entities.UserEntity;
+import java.util.UUID;
+
+public class UserMapper {
+
+    public UserEntity toEntity(User user) {
+        return new UserEntity(
+                user.getId().toString(),
+                user.getEmail(),
+                user.getName(),
+                user.getPassword());
+    }
+
+    public User toDomain(UserEntity userEntity) {
+        return new User(
+                UUID.fromString(userEntity.getId()),
+                userEntity.getNombre(),
+                userEntity.getEmail(),
+                userEntity.getHashedPassword());
+    }
+}

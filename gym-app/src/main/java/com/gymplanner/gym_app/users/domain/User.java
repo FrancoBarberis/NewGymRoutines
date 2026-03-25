@@ -1,12 +1,14 @@
 package com.gymplanner.gym_app.users.domain;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
 public class User {
-    private Long id;
+    private UUID id;
     private String name;
     private String email;
     private String password;

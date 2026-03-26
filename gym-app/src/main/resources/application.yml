@@ -12,6 +12,9 @@ spring:
     properties:
       hibernate.format_sql: true
   sql.init.mode: never
+  mail:
+    host: localhost
+    port: 25
 
 flyway:
   enabled: true

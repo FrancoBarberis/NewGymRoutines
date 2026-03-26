@@ -7,6 +7,8 @@ import com.gymplanner.gym_app.users.ports.EmailService;
 import com.gymplanner.gym_app.users.ports.UserRepository;
 import com.gymplanner.gym_app.users.usecases.RegisterUser;
 import com.gymplanner.gym_app.users.usecases.verification.GenerateVerificationToken;
+import com.gymplanner.gym_app.users.usecases.verification.ConfirmUser;
+import com.gymplanner.gym_app.users.ports.VerificationTokenRepository;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -20,6 +22,16 @@ public class UserConfig {
         GenerateVerificationToken tokenService,
         EmailService emailService) {
         return new RegisterUser(userRepository, passwordEncoder, tokenService, emailService);
+    }
+
+    @Bean
+    public GenerateVerificationToken generateVerificationToken(VerificationTokenRepository verificationTokenRepository) {
+        return new GenerateVerificationToken(verificationTokenRepository);
+    }
+
+    @Bean
+    public ConfirmUser confirmUser(VerificationTokenRepository verificationTokenRepository, UserRepository userRepository) {
+        return new ConfirmUser(verificationTokenRepository, userRepository);
     }
 
 }

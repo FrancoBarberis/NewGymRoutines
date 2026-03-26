@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import com.gymplanner.gym_app.users.usecases.RegisterUser;
 import com.gymplanner.gym_app.users.usecases.RegisterUserCommand;
 import com.gymplanner.gym_app.users.domain.User;
+import com.gymplanner.gym_app.users.usecases.verification.ConfirmUser;
+import org.springframework.http.ResponseEntity;
 
 import jakarta.validation.Valid;
 
@@ -12,9 +14,11 @@ import jakarta.validation.Valid;
 public class UserController {
 
     private final RegisterUser registerUser;
+    private final ConfirmUser confirmUser;
 
-    public UserController(RegisterUser registerUser) {
+    public UserController(RegisterUser registerUser, ConfirmUser confirmUser) {
         this.registerUser = registerUser;
+        this.confirmUser = confirmUser;
     }
 
     @PostMapping("/register")
@@ -32,5 +36,15 @@ public class UserController {
 
         // devolvemos el response
         return RegisterUserResponse.from(user);
+    }
+
+    @GetMapping("/confirm")
+    public ResponseEntity<String> confirm(@RequestParam String token) {
+        try {
+            confirmUser.execute(token);
+            return ResponseEntity.ok("User confirmed successfully!");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 }

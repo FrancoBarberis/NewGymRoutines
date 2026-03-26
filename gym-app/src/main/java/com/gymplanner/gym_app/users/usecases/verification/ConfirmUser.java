@@ -15,6 +15,9 @@ public class ConfirmUser {
     }
 
     public void execute(String token) {
+        if (token != null) {
+            token = token.trim().replace("\"", "").replace("'", "");
+        }
         var stored = tokenRepo.findByToken(token);
         if (stored == null) {
             throw new IllegalArgumentException("Token inválido o expirado");

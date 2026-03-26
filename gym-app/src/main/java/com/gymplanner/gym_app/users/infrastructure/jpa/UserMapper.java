@@ -10,14 +10,17 @@ public class UserMapper {
                 user.getId(),
                 user.getEmail(),
                 user.getName(),
-                user.getPassword());
+                user.getPassword(),
+                user.isVerified());
     }
 
     public User toDomain(UserEntity userEntity) {
-        return new User(
+        User user = new User(
                 userEntity.getId(),
                 userEntity.getNombre(),
                 userEntity.getEmail(),
                 userEntity.getHashedPassword());
+        user.setVerified(userEntity.isVerified());
+        return user;
     }
 }

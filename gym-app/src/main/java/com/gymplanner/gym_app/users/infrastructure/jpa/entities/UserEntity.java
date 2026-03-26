@@ -23,5 +23,6 @@ public class UserEntity {
     String email;
     String nombre;
     String hashedPassword;
+    boolean verified;
 
 }

@@ -1,0 +1,36 @@
+El cliente llama a:
+POST /users/register enviando nombre, email y password.
+
+
+El controller recibe la request, la valida con anotaciones, y crea un RegisterUserCommand.
+
+
+El caso de uso RegisterUser:
+
+Verifica que el email no esté en uso.
+Hashea la contraseña usando un PasswordEncoder.
+Crea un User con verified = false.
+Lo guarda mediante UserRepository.
+Genera un token de verificación mediante el caso de uso GenerateVerificationToken.
+Llama a EmailService para enviar un email con el link de confirmación.
+Devuelve el usuario creado.
+
+
+
+El usuario recibe el email y hace clic en:
+GET /users/confirm?token={token}
+
+
+El controller de confirmación toma el token, llama al caso de uso ConfirmUser.
+
+
+ConfirmUser:
+
+Busca el token mediante VerificationTokenRepository.
+Busca al usuario asociado utilizando el userId del token.
+Marca al usuario como verified = true.
+Llama a userRepository.update para persistir el cambio.
+
+
+
+El usuario queda confirmado.

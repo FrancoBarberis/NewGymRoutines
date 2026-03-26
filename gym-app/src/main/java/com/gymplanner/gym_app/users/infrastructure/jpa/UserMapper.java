@@ -2,7 +2,6 @@ package com.gymplanner.gym_app.users.infrastructure.jpa;
 
 import com.gymplanner.gym_app.users.domain.User;
 import com.gymplanner.gym_app.users.infrastructure.jpa.entities.UserEntity;
-import java.util.UUID;
 
 public class UserMapper {
 

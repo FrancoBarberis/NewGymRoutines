@@ -19,6 +19,7 @@ public class RegisterUserTest {
         UserRepository repo = mock(UserRepository.class);
         PasswordEncoder encoder = mock(PasswordEncoder.class);
 
+        //COLOCAR EL ALL ARGS CONST
         RegisterUser useCase = new RegisterUser(repo, encoder);
 
         RegisterUserCommand cmd = new RegisterUserCommand(

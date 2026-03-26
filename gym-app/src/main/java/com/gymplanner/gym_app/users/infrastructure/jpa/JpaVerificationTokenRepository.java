@@ -2,15 +2,15 @@ package com.gymplanner.gym_app.users.infrastructure.jpa;
 
 import org.springframework.stereotype.Repository;
 import com.gymplanner.gym_app.users.ports.VerificationTokenRepository;
-import com.gymplanner.gym_app.users.infrastructure.jpa.entities.VerificationTokenEntity;
 import com.gymplanner.gym_app.users.usecases.verification.VerificationToken;
+import com.gymplanner.gym_app.users.infrastructure.jpa.entities.VerificationTokenEntity;
 
 @Repository
 public class JpaVerificationTokenRepository implements VerificationTokenRepository {
 
-    private final VerificationTokenDataRepository repo;
+    private final SpringDataVerificationTokenRepository repo;
 
-    public JpaVerificationTokenRepository(VerificationTokenDataRepository repo) {
+    public JpaVerificationTokenRepository(SpringDataVerificationTokenRepository repo) {
         this.repo = repo;
     }
 

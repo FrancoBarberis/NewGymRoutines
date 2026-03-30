@@ -20,7 +20,7 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/users/register", "/users/confirm").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll() //SOLO PARA DEV
             );
         return http.build();
     }

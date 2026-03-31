@@ -63,9 +63,10 @@ public class UserController {
                 request.password());
 
         User user = authenticateUser.execute(cmd);
+        String token = jwtService.generate(user);
 
         return ResponseEntity.ok(
-                AuthenticateUserResponse.from(user));
+                AuthenticateUserResponse(token));
     }
 
 }

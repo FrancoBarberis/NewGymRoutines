@@ -1,22 +1,28 @@
-# src/main/resources/application.yml
 spring:
   datasource:
     url: jdbc:h2:mem:gymdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
-    driverClassName: org.h2.Driver
+    driver-class-name: org.h2.Driver
     username: sa
     password: sa
+
   h2:
     console:
       enabled: true
       path: /h2-console
+
   jpa:
     hibernate:
-      ddl-auto: validate   # usamos Flyway para schema
+      ddl-auto: validate   # Flyway manda el schema
     open-in-view: false
     properties:
       hibernate.format_sql: true
-  sql.init.mode: never
+
+  sql:
+    init:
+      mode: never
+
   mail:
+    # Desactivado efectivamente (red corporativa / MVP)
     host: localhost
     port: 25
 
@@ -32,3 +38,9 @@ management:
     web:
       exposure:
         include: health,info,metrics
+
+security:
+  jwt:
+    # >= 32 caracteres REALES, válido para HS256
+    secret: "dev-secret-very-strong-32-characters-minimum!"
+    expiration-minutes: 15

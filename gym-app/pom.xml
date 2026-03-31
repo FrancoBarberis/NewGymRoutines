@@ -21,8 +21,9 @@
         <java.version>21</java.version>
     </properties>
 
-    <dependencies>
-        <!-- ⭐ TESTING PROFESIONAL: JUnit 5 + Mockito + AssertJ + Spring Test -->
+   <dependencies>
+
+        <!-- ⭐ TESTING -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -72,7 +73,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- H2 Database -->
+        <!-- H2 -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
@@ -86,14 +87,36 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- MAILING -->
-        
+        <!-- Mail -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
 
+        <!-- ✅ JWT (JJWT) -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId>
+            <version>0.12.5</version>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
+
+    
 
     <build>
         <plugins>

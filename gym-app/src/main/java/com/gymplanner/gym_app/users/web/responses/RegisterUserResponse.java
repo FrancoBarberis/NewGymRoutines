@@ -1,4 +1,4 @@
-package com.gymplanner.gym_app.users.web;
+package com.gymplanner.gym_app.users.web.responses;
 
 import com.gymplanner.gym_app.users.domain.User;
 

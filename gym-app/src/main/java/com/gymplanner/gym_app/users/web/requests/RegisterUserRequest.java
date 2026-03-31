@@ -1,4 +1,4 @@
-package com.gymplanner.gym_app.users.web;
+package com.gymplanner.gym_app.users.web.requests;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

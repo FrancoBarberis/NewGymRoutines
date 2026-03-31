@@ -5,6 +5,9 @@ import com.gymplanner.gym_app.users.usecases.RegisterUser;
 import com.gymplanner.gym_app.users.usecases.RegisterUserCommand;
 import com.gymplanner.gym_app.users.domain.User;
 import com.gymplanner.gym_app.users.usecases.verification.ConfirmUser;
+import com.gymplanner.gym_app.users.web.requests.RegisterUserRequest;
+import com.gymplanner.gym_app.users.web.responses.RegisterUserResponse;
+
 import org.springframework.http.ResponseEntity;
 
 import jakarta.validation.Valid;

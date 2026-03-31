@@ -1,3 +1,5 @@
+package com.gymplanner.gym_app.users.authentication;
+
 import com.gymplanner.gym_app.users.domain.User;
 import com.gymplanner.gym_app.users.ports.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;

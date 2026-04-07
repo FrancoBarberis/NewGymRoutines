@@ -15,12 +15,11 @@ public class UserMapper {
     }
 
     public User toDomain(UserEntity userEntity) {
-        User user = new User(
+        return new User(
                 userEntity.getId(),
                 userEntity.getNombre(),
                 userEntity.getEmail(),
-                userEntity.getHashedPassword());
-        user.setVerified(userEntity.isVerified());
-        return user;
+                userEntity.getHashedPassword(),
+                userEntity.isVerified());
     }
 }

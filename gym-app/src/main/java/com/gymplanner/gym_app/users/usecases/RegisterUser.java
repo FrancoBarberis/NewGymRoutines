@@ -34,7 +34,8 @@ public class RegisterUser {
                 UUID.randomUUID(),
                 cmd.nombre(),
                 cmd.email(),
-                hashedPassword
+                hashedPassword,
+                false
         );
 
         // 4. Persistir usuario

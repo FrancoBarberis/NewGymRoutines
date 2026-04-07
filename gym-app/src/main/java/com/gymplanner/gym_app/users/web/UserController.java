@@ -15,21 +15,24 @@ import com.gymplanner.gym_app.users.authentication.AuthenticateUser;
 import org.springframework.http.ResponseEntity;
 
 import jakarta.validation.Valid;
+import com.gymplanner.gym_app.security.jwt.JwtService;
 
 @RestController
 @RequestMapping("/users")
 public class UserController {
 
-    // INYECCION DE CASOS DE USO
+    // INYECCION DE CASOS DE USO Y DEPENDENCIAS
 
     private final RegisterUser registerUser;
     private final ConfirmUser confirmUser;
     private final AuthenticateUser authenticateUser;
+    private final JwtService jwtService;
 
-    public UserController(RegisterUser registerUser, ConfirmUser confirmUser, AuthenticateUser authenticateUser) {
+    public UserController(RegisterUser registerUser, ConfirmUser confirmUser, AuthenticateUser authenticateUser, JwtService jwtService) {
         this.registerUser = registerUser;
         this.confirmUser = confirmUser;
         this.authenticateUser = authenticateUser;
+        this.jwtService = jwtService;
     }
 
     @PostMapping("/register")
@@ -66,7 +69,7 @@ public class UserController {
         String token = jwtService.generate(user);
 
         return ResponseEntity.ok(
-                AuthenticateUserResponse(token));
+                new AuthenticateUserResponse(token));
     }
 
 }

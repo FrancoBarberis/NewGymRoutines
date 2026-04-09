@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.gymplanner.gym_app.excercises.domain.Exercise;
 import com.gymplanner.gym_app.excercises.infrastructure.jpa.entities.ExerciseEntity;
 import com.gymplanner.gym_app.excercises.ports.ExerciseRepository;
+import com.gymplanner.gym_app.excercises.infrastructure.jpa.SpringDataExerciseRepository;
 
 @Repository
 public class JpaExerciseRepository implements ExerciseRepository {
@@ -29,7 +30,7 @@ public class JpaExerciseRepository implements ExerciseRepository {
     public Exercise findByName(String name) {
         return repo.findByName(name)
         .map(mapper::toDomain)
-        .orElse(other::null);
+        .orElse(null);
     }
 
     @Override

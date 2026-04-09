@@ -1,4 +1,9 @@
 package com.gymplanner.gym_app.excercises.web.responses;
 
-public record RegisterExerciseResponse(String id, String nombre, String descripcion) {
+import java.util.UUID;
+
+import com.gymplanner.gym_app.excercises.domain.ExerciseType;
+import com.gymplanner.gym_app.excercises.domain.MuscleGroup;
+
+public record RegisterExerciseResponse(UUID id, String nombre, MuscleGroup muscleGroup, String descripcion, ExerciseType exerciseType) {
 }

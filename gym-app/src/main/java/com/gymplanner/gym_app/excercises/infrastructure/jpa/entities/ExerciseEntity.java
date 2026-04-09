@@ -11,13 +11,14 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-// infrastructure/persistence/entity
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @Table(name = "exercises")
 public class ExerciseEntity {
 

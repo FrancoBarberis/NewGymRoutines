@@ -5,7 +5,7 @@ import java.util.UUID;
 public interface ExerciseRepository {
     Exercise save(Exercise exercise);
     Exercise findByName(String name);
-    Exercise findById(String name);
+    Exercise findById(UUID id);
     Exercise update(Exercise exercise);
     void deleteById(UUID id);
 }

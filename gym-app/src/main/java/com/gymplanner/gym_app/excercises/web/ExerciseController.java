@@ -22,8 +22,9 @@ public class ExerciseController {
     private final RegisterExercise registerExercise;
     private final EditExercise editExercise;
 
-    public ExerciseController(RegisterExercise registerExercise) {
+    public ExerciseController(RegisterExercise registerExercise, EditExercise editExercise) {
         this.registerExercise = registerExercise;
+        this.editExercise = editExercise;
     }
 
     @PostMapping("/register")
@@ -49,6 +50,6 @@ public class ExerciseController {
     public RegisterExerciseResponse edit(
             @PathVariable String id,
             @Valid @RequestBody RegisterExerciseRequest request) {
-        return registerExercise.update(id, request);
+        return editExercise.execute(id, request);
     }
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.gymplanner.gym_app.excercises.domain.Exercise;
 import com.gymplanner.gym_app.excercises.infrastructure.jpa.entities.ExerciseEntity;
 import com.gymplanner.gym_app.excercises.ports.ExerciseRepository;
-import com.gymplanner.gym_app.excercises.infrastructure.jpa.SpringDataExerciseRepository;
 
 @Repository
 public class JpaExerciseRepository implements ExerciseRepository {
@@ -15,7 +14,7 @@ public class JpaExerciseRepository implements ExerciseRepository {
     private final SpringDataExerciseRepository repo;
     private final ExerciseMapper mapper = new ExerciseMapper();
 
-    public JpaExerciseRepository(SpringDAtaExerciseRepository repo){
+    public JpaExerciseRepository(SpringDataExerciseRepository repo){
         this.repo = repo;
     }
 

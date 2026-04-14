@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import jakarta.validation.Valid;
+import lombok.Setter;
+
 import java.util.UUID;
 
 import com.gymplanner.gym_app.excercises.usecases.RegisterExercise;

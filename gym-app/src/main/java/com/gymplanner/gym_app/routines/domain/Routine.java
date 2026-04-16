@@ -21,6 +21,14 @@ public class Routine {
     private List<ExerciseInRoutine> exerciseList;
     private User assignedTo;
     private Instant createdAt;
+
+    public Routine(String name, String objective) {
+        this(UUID.randomUUID(), name, objective, null, null, null, Instant.now());
+    }
+
+    public Routine cloneForStudent(User student) {
+        return new Routine(UUID.randomUUID(), this.name, this.objective, this.level, this.exerciseList, student, Instant.now());
+    }
 }
 
 //Las validaciones deben hacerse en la request

@@ -2,13 +2,15 @@ package com.gymplanner.gym_app.routines.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.gymplanner.gym_app.routines.usecases.CopyRoutine;
 import com.gymplanner.gym_app.routines.usecases.CreateRoutine;
 import com.gymplanner.gym_app.routines.usecases.EditRoutine;
+import com.gymplanner.gym_app.routines.web.requests.CreateRoutineRequest;
 
 import lombok.AllArgsConstructor;
 
 import com.gymplanner.gym_app.routines.domain.Routine;
-import com.gymplanner.gym_app.routines.usecases.CopyRoutine;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -31,7 +33,7 @@ public class RoutineController {
 
     @PostMapping("/register")
     //Registra una rutina nueva para un estudiante
-    public Routine register(@RequestBody RegisterRoutineRequest request) {
+    public Routine register(@RequestBody CreateRoutineRequest request) {
         //TODO: process POST request
         
         return null;
@@ -39,8 +41,8 @@ public class RoutineController {
 
     @GetMapping("/{studentId}")
     //Devuelve las rutinas asignadas a un estudiante
-    public List<Routine> getStudentRoutines(@RequestParam UUID studentId) {
-        return new String();
+    public List<Routine> getStudentRoutines(@PathVariable UUID studentId) {
+        return List.of();
     }
 
     @PostMapping("/copy/{routineId}/")

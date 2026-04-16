@@ -1,15 +1,14 @@
 package com.gymplanner.gym_app.routines.usecases;
 
-import com.gymplanner.gym_app.routines.domain.Routine;
+import java.util.UUID;
 import com.gymplanner.gym_app.routines.ports.RoutineRepository;
-
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public class EditRoutine {
+public class DeleteRoutine {
     private final RoutineRepository routineRepository;
-    
-    public Routine execute(){
-        return null;
+
+    public void execute(UUID routineId) {
+        routineRepository.deleteById(routineId);
     }
 }

@@ -13,7 +13,7 @@ public class EditExercise {
 
     public Exercise execute(EditExerciseCommand cmd){
         Exercise exercise = new Exercise(
-            UUID.randomUUID(),
+            cmd.id(),
             cmd.name(),
             cmd.muscleGroup(),
             cmd.description(),

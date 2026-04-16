@@ -13,4 +13,8 @@ public class User {
     private String email;
     private String password;
     private boolean verified;
+
+    public User(UUID id, String name, String email, String password) {
+        this(id, name, email, password, false);
+    }
 }
